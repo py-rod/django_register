@@ -1,0 +1,39 @@
+{% extends 'layouts/header_page.html' %}
+
+
+
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css
+">
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md4 mt-4 m-auto card ps-3 pe-3">
+            <form method="POST" class="card card-body mt-3">
+                <h2 class="task_detail m-auto">Task detail</h2>
+                <p class="error_task_deatil">
+                    {{error}}
+                </p>
+                {% csrf_token %}
+                
+                {{form}}
+                
+                <button class="btn btn-primary mt-3">Update</button>
+            </form>
+            <div class="content_buttons">
+                {% if task.datecomplete %}
+                <form action="{% url 'taskdelete' task.id %}" method="POST" class="form_content_button_delete">
+                    {% csrf_token %}
+                    <button class="button_delete btn btn-danger mt-3">Delete</button>
+                </form>
+                {% else %}
+                <form action="{% url 'taskcomplete' task.id %}" method="POST" class="form_content_button_complete">
+                    {% csrf_token %}
+                    <button class="button_complete btn btn-success mt-3">Complete</button>
+                </form>
+                {% endif %}
+            </div>
+    </div>
+</main>
+{% endblock %}

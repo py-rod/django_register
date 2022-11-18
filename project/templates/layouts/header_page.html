@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/header_page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/regis.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/task.css' %}">
+    <link rel="stylesheet" href="{% static 'css/createtask.css' %}">
+    <link rel="stylesheet" href="{% static 'css/taskdetail.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <title>Django app</title>
+</head>
+<body>
+    <header class="header">
+        <h2 class="header_logo">pyrod</h2>
+        <label for="menu" class="header_label">
+            <img src="{% static 'menu.png' %}" style="width:40px;">
+        </label>
+        <input type="checkbox" name="menu" id="menu" class="header_input">
+        
+        <nav class="header_content_links">
+            <a href="{% url 'home' %}">Home</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'task' %}">Task</a>
+                <a href="{% url 'createtask' %}">Create Task</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'signup' %}">Sign up</a>
+                <a href="{% url 'login' %}">Sign in</a>
+            {% endif %}
+
+        </nav>
+    </header>
+    
+    {% block content %}
+    
+    {% endblock %}
+</body>
+</html>

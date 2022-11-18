@@ -1,0 +1,71 @@
+{% extends 'layouts/header_page.html' %}
+
+{% block content %}
+    <main class="main_task">
+        <section class="section_task">
+            <ul class="content_ul_task">
+                <h2 class="task_complete_or_not">Task Complete</h2>
+                {% for task in tasks %}
+                {% if task.datecomplete %}
+                    <li class="content_li_task">
+                        <a href="{% url 'taskdetail' task.id %}" class="target_container_task">
+                            <h3 class="task_title">
+                                {{task.title}}
+                            </h3>
+                            <p class="task_description">
+                                {{task.description}}
+                            </p>
+                            <div class="content_user_create">
+                                <p class="content_user">
+                                    Create by <strong style="color: rgb(92, 91, 91);">{{task.user}}</strong>
+                                </p>
+                                <p class="content_create">
+                                    {{task.create}}
+                                </p>
+                            </div>
+                            {% if task.datecomplete %}
+                                <p class="content_datecomplete">
+                                    complete
+                                </p>
+                            {% endif %}
+                        </a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+
+
+            <ul class="content_ul_task">
+                <h2 class="task_complete_or_not">Pending Task</h2>
+                {% for task in tasks %}
+                {% if task.datecomplete == Null %}
+                    <li class="content_li_task">
+                        <a href="{% url 'taskdetail' task.id %}" class="target_container_task">
+                            <h3 class="task_title">
+                                {{task.title}}
+                            </h3>
+                            <p class="task_description">
+                                {{task.description}}
+                            </p>
+                            <div class="content_user_create">
+                                <p class="content_user">
+                                    Create by <strong style="color: rgb(92, 91, 91);">{{task.user}}</strong>
+                                </p>
+                                <p class="content_create">
+                                    {{task.create}}
+                                </p>
+                            </div>
+                            {% if task.datecomplete == Null %}
+                                <p class="content_nodatecomplete">
+                                    Pending
+                                </p>
+                            {% endif %}
+                        </a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+{% endblock %}

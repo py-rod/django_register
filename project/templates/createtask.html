@@ -1,0 +1,33 @@
+{% extends 'layouts/header_page.html' %}
+
+
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css
+">
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-5">
+            <form action="/task/create/" method="POST" class="card card-body">
+
+                <h1>Create task</h1>
+                {{error}}
+                {% csrf_token %}
+                {{form}}
+                <button
+                class="btn btn-primary mt-3">Save task</button>
+
+            </form>
+        </div>
+    </div>
+</main>
+    <!-- <main class="main_createtask">
+        <form action="" method="POST" class="form_createtask">
+            {% csrf_token %}
+            {{error}}
+            {{form.as_div}}
+            <button class="button_savetask">
+                Save
+            </button>
+        </form>
+    </main> -->
+{% endblock %}

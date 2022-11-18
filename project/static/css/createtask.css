@@ -1,0 +1,33 @@
+.main_createtask{
+    padding: 80px 0;
+}
+
+.form_createtask{
+    margin: 0 auto;
+    max-width: 450px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+.form_createtask > div > label{
+    font-size: 1.2rem;
+}
+
+.form_createtask > div > input{
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    outline: none;
+    border: .5px solid gray;
+}
+
+.form_createtask > div > input:focus{
+    border: 3px solid royalblue;
+}
+
+.form_createtask > div > div > ul{
+    list-style-type: none;
+}

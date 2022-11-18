@@ -1,0 +1,13 @@
+{% extends 'layouts/header_page.html' %}
+
+
+
+{% block content %}
+<main class="main_signup">
+    <form action="" method="POST" enctype="multipart/form-data" class="form_signup">
+        {% csrf_token %}
+        {{form.as_div}}
+        <button class="button_signup">Register</button>
+    </form>
+</main>
+{% endblock %}

@@ -1,0 +1,27 @@
+.button_save{
+    margin-top: 15px;
+    border: none;
+    background-color: royalblue;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 0;
+}
+
+
+.content_buttons{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.form_content_button_delete, .form_content_button_complete{
+    width: 100%;
+    text-align: center;
+
+    margin-bottom: 15px;
+}
+
+.button_delete, .button_complete{
+    width: 90%;
+}

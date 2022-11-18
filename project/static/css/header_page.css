@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+.header{
+    width: 100%;
+    height: 5rem;
+    background-color: royalblue;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.25rem;
+    align-items: center;
+    color: white;
+}
+
+
+.header_logo{
+    font-size: 2.1rem;
+}
+
+.header_label{
+    display: none;
+}
+
+.header_input{
+    display: none;
+}
+
+
+.header_content_links{
+    display: flex;
+    gap: 20px;
+}
+
+
+.header_content_links > a{
+    text-decoration: none;
+    color: white;
+}
+
+
+@media (max-width:984px) {
+    .header_label{
+        display: block;
+        cursor: pointer;
+    }
+
+    .header_content_links{
+        position: fixed;
+        top: 70px;
+        bottom: 0;
+        width: 100%;
+        height: 95%;
+        background-color: rgb(48, 85, 196);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        left: 0;
+        clip-path: circle(0 at center);
+        transition: all .3s;
+    }
+
+    .header_content_links > a {
+        border-radius: 5px;
+        border: 3px solid white;
+        height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+    }
+
+    .header_input:checked + .header_content_links{
+        clip-path: circle(100% at 50% 50%);
+        transition: all .4s;
+    }
+
+
+}
